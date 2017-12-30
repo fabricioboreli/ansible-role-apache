@@ -1,0 +1,6 @@
+---
+- include_tasks: debian.yml
+  when: ansible_os_family == "Debian" and ansible_lsb.major_release|int >= 8
+  
+- import_tasks: centos.yml
+  when: ansible_distribution == 'CentOS' and ansible_distribution_major_version == "7"

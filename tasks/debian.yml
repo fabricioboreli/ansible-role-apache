@@ -1,0 +1,14 @@
+---
+- name: Install apache2 package
+  apt:
+    update_cache: yes
+    package: "{{ item }}"
+    state: present
+  with_items:
+    - apache2
+
+- name: Enable and start apache2 daemon
+  service:
+    name: apache2
+    enabled: yes
+    state: started
